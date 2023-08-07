@@ -1,13 +1,13 @@
 //Components are reusable building blocks.
 //login page
 
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 
 const logIn = () => {
   const [serviceNumber, setServiceNumber] = useState('');
   const [password, setPassword] = useState('');
-  const history = useHistory();
+  const router = useRouter()
 
   const handleServiceNumberChange = (event) => {
     setServiceNumber(event.target.value);
@@ -23,7 +23,7 @@ const logIn = () => {
 
     if (serviceNumber === '12345' && password === 'secret') {
         // Redirect to the home page on successful login
-        history.push('/home');
+        router.push('/home');
     } else {
         alert('Invalid service number or password');
       } 
